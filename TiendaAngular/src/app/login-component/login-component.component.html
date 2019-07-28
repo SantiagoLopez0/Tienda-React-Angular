@@ -1,0 +1,9 @@
+  <div class="col s5 loginContainer center-align" *ngIf="loginVerify">
+    <div class="loginTitle">Inicio de Sesión</div>
+    <div class="fields-Container">
+      <input type="text" #user placeholder="Usuario..." />
+      <input type="password" #pass placeholder="Contraseña..." />
+      <!--button id="login" class="loginButton" (click) = "onLogin()">Ingresar</button-->
+      <a (click)="onLogin(user.value, pass.value)" [routerLink]="['home']" class="button loginButton">Ingresar</a>
+    </div>
+  </div>
