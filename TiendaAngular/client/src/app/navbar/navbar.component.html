@@ -1,0 +1,8 @@
+<nav>
+  <div class="nav-wrapper blue lighten-5">
+    <span class="brand-logo black-text">{{titulo}}</span>
+    <ul id="nav-mobile" class="right hide-on-med-and-down" *ngFor="let item of barraNav">
+      <li><a (click)="onEvent(item.nombre)" title="{{item.nombre}}"> <i class="material-icons black-text">{{item.iconName}}</i></a></li>
+    </ul>
+  </div>
+</nav>
