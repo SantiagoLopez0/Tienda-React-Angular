@@ -2,10 +2,14 @@
   <div class="col s5 loginContainer center-align">
     <div class="loginTitle">Inicio de Sesión</div>
     <div class="fields-Container">
-      <input type="text" #user placeholder="Usuario..." />
-      <input type="password" #pass placeholder="Contraseña..." />
-      <!--button id="login" class="loginButton" (click) = "onLogin()">Ingresar</button-->
-      <a (click)="onLogin(user.value, pass.value)" class="button loginButton">Ingresar</a>
+      <form class="" action="index.html" method="post" [formGroup]="miFormulario" (ngSubmit)="onLogin()">
+        <input type="text" formControlName="user" placeholder="Usuario..."/>
+        <label class="alertMessage" *ngIf="userNull">Debe ingresar un usuario existente</label>
+        <input type="password" formControlName="password" placeholder="Contraseña..."/>
+        <label class="alertMessage" *ngIf="incorrectPassword">Contraseña incorrecta</label>
+
+        <button type="submit" class="button loginButton" [disabled]="!miFormulario.valid">Ingresar</button>
+      </form>
     </div>
-  </div>  
+  </div>
 </div>

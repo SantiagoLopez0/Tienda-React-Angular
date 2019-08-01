@@ -25,11 +25,16 @@
 }
 
 .fields-Container {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   font-family: 'oswald';
+}
+
+form{
+  width: 100%;
 }
 
 input {
@@ -47,7 +52,7 @@ input {
 }
 
 .loginButton {
-  margin-top: 8px;
+  margin-top: 25px;
   width: 358px;
   height: 32px;
   border-radius: 4px;
@@ -56,4 +61,12 @@ input {
   color: #FFFFFF;
   background: #1270b6;
   font-family: 'oswald';
+}
+
+.alertMessage{
+  display: flex;
+  flex-direction: column;
+  color: red;
+  background-color: #ffcdd2;
+  font-size: 18px;
 }
