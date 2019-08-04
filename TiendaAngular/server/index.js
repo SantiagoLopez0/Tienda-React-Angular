@@ -20,6 +20,7 @@ app.use(session({
 
 // Routes
 app.use('/api/users', require('./routes/rutasUsuarios.js'));
+app.use('/api/productos', require('./routes/rutasProductos.js'));
 
 // starting the server
 app.listen(app.get('port'), () => {

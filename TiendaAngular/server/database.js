@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const URL = 'mongodb://localhost/agenda';
+const URL = 'mongodb://localhost/Tienda';
 
 mongoose.connect(URL)
     .then(db => console.log('db is connected'), { useNewUrlParser: true })

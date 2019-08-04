@@ -11,11 +11,14 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import { CardProductoComponent } from './card-producto/card-producto.component';
 import { ProductoComponent } from './producto/producto.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { ProductoHttpService } from './producto-http.service';
+import { HttpService } from './http.service';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: CatalogoComponent },
-  { path: 'carrito', component: CarritoComponent }
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'producto/:nombre', component: ProductoComponent },
 ];
 
 
@@ -38,7 +41,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ProductoHttpService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

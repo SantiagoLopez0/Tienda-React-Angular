@@ -1,1 +1,30 @@
-<p>producto works!</p>
+<div class="row mainContainer">
+  <div class="container">
+    <app-navbar></app-navbar>
+    <div class="col s12 card horizontal">
+      <div class="divider"></div>
+        <div class="card-image" >
+          <img src="{{producto.url}}" alt="{{producto.nombre}}">
+        </div>
+        <div class="card-stacked">
+          <div class="card-title">
+            <h2>{{producto.nombre}}</h2>
+          </div>
+          <div class="card-content">
+            <span>{{producto.descripcion}}</span>
+            <br>
+            <span><strong>Precio: </strong><span class="contenidoSpan">${{producto.precio}}</span></span>
+            <br>
+            <span><strong>Unidades disponibles: </strong><span class="contenidoSpan">{{producto.cantidadDisponible
+}}</span></span>
+          </div>
+          <div class="card-action">
+            <a (onclick)="goBack()">Volver</a>
+            <a href="#">Añadir</a>
+            <input type="number" name="cantidadSelec" min="1" max="{{producto.cantidadDisponible}}">
+          </div>
+        </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

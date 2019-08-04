@@ -25,7 +25,8 @@ usuarios.loginUser = async (req, res, next) => {
               }else{
                 if(count == 1){
                   session.user = req.body.user;
-                  res.json({status: 'Validado', session: session.user});
+                  res.json({status: 'Validado'});
+                  console.log('Sesion iniciada como: '+session.user);
                 }else{
                   res.json({status: 'Contraseña incorrecta'});
                 }
@@ -36,6 +37,19 @@ usuarios.loginUser = async (req, res, next) => {
         }
       }
   })
+}
+
+usuarios.logout = async (req, res, next) => {
+  req.session.destroy(function(err) {
+  if(err) {
+    console.log(err);
+    res.json(err);
+  } else {
+    req.session = null;
+    res.send('logout');
+    res.end();
+  }
+  });
 }
 
 module.exports = usuarios;

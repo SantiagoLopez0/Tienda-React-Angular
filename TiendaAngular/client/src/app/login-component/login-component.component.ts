@@ -33,16 +33,17 @@ export class LoginComponent implements OnInit {
   validateLogin(user: any, pass: any){
     this.httpService.loginUser(user, pass)
     .subscribe(
-      res => {
-        if(res.status == 'Validado'){
+      (res: HttpResponse<any>) => {
+        
+        let respuesta = res.status;
+        if(respuesta.toString() == 'Validado'){
           this.router.navigate(['home']);
-          console.log('Sesion iniciada como: '+res.session);
-        }else if(res.status == 'Contraseña incorrecta'){
-          console.log(res.status);
+        }else if(respuesta.toString() == 'Contraseña incorrecta'){
+          console.log(respuesta);
           this.incorrectPassword = true;
           this.userNull = false;
-        }else if(res.status == 'Usuario no registrado'){
-          console.log(res.status);
+        }else if(respuesta.toString() == 'Usuario no registrado'){
+          console.log(respuesta);
           this.userNull = true;
         }
       })

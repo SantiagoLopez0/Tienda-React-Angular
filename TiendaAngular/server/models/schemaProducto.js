@@ -7,6 +7,7 @@ let ProdSchema = new Schema({
   descripcion: {type: String},
   precio: { type: String, required: true },
   cantidadDisponible: { type: Number},
+  url: {type: String},
 });
 
 var connection = mongoose.createConnection("mongodb://localhost/Tienda");

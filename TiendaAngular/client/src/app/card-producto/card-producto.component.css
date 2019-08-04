@@ -9,7 +9,7 @@ img[alt='Naranja'], img[alt='Repollo'], img[alt='Tomate']{
 }
 
 .card{
-  height: 330px;
+  height: 365px;
 }
 
 .contenidoSpan{
@@ -18,4 +18,21 @@ img[alt='Naranja'], img[alt='Repollo'], img[alt='Tomate']{
 
 .card-title{
   font-style: italic;
+}
+
+.card-action{
+  display: flex;
+  flex-direction: row;
+}
+
+a{
+  color: #90caf9 !important;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.input[type=number]:not(.browser-default){
+  width: 60px;
 }

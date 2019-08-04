@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from './user';
 
 
 
@@ -10,12 +9,7 @@ import { User } from './user';
 })
 
 export class HttpService {
-  selectedUser: User;
-  users: User[];
-
-  constructor(private http: HttpClient) {
-    this.selectedUser = new User();
-  }
+  constructor(private http: HttpClient) {}
 
   URL_API = 'http://localhost:3000/api/users';
 
