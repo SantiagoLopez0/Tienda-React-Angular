@@ -46,7 +46,7 @@ usuarios.logout = async (req, res, next) => {
     res.json(err);
   } else {
     req.session = null;
-    res.send('logout');
+    res.json({status: 'logout'});
     res.end();
   }
   });

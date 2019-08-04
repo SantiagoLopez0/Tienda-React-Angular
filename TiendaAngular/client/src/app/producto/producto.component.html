@@ -13,13 +13,13 @@
           <div class="card-content">
             <span>{{producto.descripcion}}</span>
             <br>
-            <span><strong>Precio: </strong><span class="contenidoSpan">${{producto.precio}}</span></span>
+            <span><strong>Precio: </strong><span class="contenidoDB">${{producto.precio}}</span></span>
             <br>
-            <span><strong>Unidades disponibles: </strong><span class="contenidoSpan">{{producto.cantidadDisponible
+            <span><strong>Unidades disponibles: </strong><span class="contenidoDB">{{producto.cantidadDisponible
 }}</span></span>
           </div>
           <div class="card-action">
-            <a (onclick)="goBack()">Volver</a>
+            <a [routerLink]="['/home']">Volver</a>
             <a href="#">Añadir</a>
             <input type="number" name="cantidadSelec" min="1" max="{{producto.cantidadDisponible}}">
           </div>

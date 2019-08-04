@@ -10,7 +10,7 @@
 
 .catalogo{
   color: black;
-  height: 570px;
+  height: 570px !important;
   overflow-y: auto;
 }
 
@@ -46,4 +46,50 @@
 
 .car-title{
   font-size: 3em;
+  display: flex;
+  flex-direction: row;
+}
+
+input[type=text]:not(.browser-default){
+  width: 35%;
+  margin-left: 24%;
+}
+
+img[alt='Aguacate'], img[alt='Brocoli']{
+  width: 68.5%;
+  left: 30px;
+}
+
+img[alt='Naranja'], img[alt='Repollo'], img[alt='Tomate']{
+  width: 85%;
+  left: 15px;
+}
+
+.card{
+  height: 365px;
+}
+
+.contenidoSpan{
+  color: gray;
+}
+
+.titleProd{
+  font-style: italic;
+}
+
+.card-action{
+  display: flex;
+  flex-direction: row;
+}
+
+a{
+  color: #90caf9 !important;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.input[type=number]:not(.browser-default){
+  width: 60px;
 }

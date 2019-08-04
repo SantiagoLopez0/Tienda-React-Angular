@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from '../http.service';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,7 @@ export class NavbarComponent implements OnInit {
   titulo = 'La Bodega';
   barraNav : object[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpService) { }
 
   ngOnInit() {
     this.barraNav= [
@@ -31,19 +33,22 @@ export class NavbarComponent implements OnInit {
 
   onEvent(idTarget: string){
     if(idTarget == "cerrar sesión"){
-        this.router.navigate(['']);
-        alert("Chao");
+        this.http.logoutUser().subscribe((res: HttpResponse<any>) => {
+          let respuesta = res.status;
+          if(respuesta.toString() == 'logout'){
+            this.router.navigate(['']);
+            alert("Chao");
+          }
+        })
+    }else if(idTarget == "catalogo"){
+      this.router.navigate(['/home']);
     }else{
-      alert("Otro");
+      alert("Carrito");
     }
   }
 
   onShopping(){
     alert("Carrito");
-  }
-
-  onHome(){
-    this.router.navigate(['home']);
   }
 
 }

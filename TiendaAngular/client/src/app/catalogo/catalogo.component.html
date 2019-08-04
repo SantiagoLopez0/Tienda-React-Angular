@@ -4,9 +4,30 @@
     <div class=" col s12 card catalogo">
       <div class="car-title">
         <span>Catálogo de Productos</span>
+        <input type="text" class="left-align" #formulario (keyup)="onChange(formulario.value)" placeholder="Busca un producto...">
       </div>
       <div class="divider"></div>
-      <app-card-producto></app-card-producto>
+      <div class="contenedorProducto" *ngFor="let prod of productos">
+        <div class="col s3">
+          <div class="card">
+            <div class="card-image" >
+              <img src="{{prod.url}}" alt="{{prod.nombre}}">
+            </div>
+            <div class="card-content">
+              <span class="card-title titleProd">{{prod.nombre}}</span>
+              <span><strong>Precio: </strong><span class="contenidoSpan">${{prod.precio}}</span></span>
+              <br>
+              <span><strong>Unidades disponibles: </strong><span class="contenidoSpan">{{prod.cantidadDisponible}}</span></span>
+            </div>
+            <div class="card-action">
+              <a [routerLink]="['/producto', prod.nombre]">Ver más</a>
+              <a href="#">Añadir</a>
+              <input type="number" name="cantidadSelec" min="1" max="{{prod.cantidadDisponible}}">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </div>

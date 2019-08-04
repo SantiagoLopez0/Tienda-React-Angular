@@ -16,24 +16,27 @@ export class ProductoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productoService: ProductoHttpService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.getInfoProd();
   }
 
-  getInfoProd(): void {
+  getInfoProd() {
     const name = this.route.snapshot.paramMap.get('nombre');
-    const getProd = this.productoService.getOneProd(name);
+    const getProd = this.productoService.getProd();
 
     getProd.subscribe((prodData: any[]) => {
-      this.producto = prodData;
+      let aux : any[] = [];
+      for(let key in prodData){
+        if(prodData[key].nombre == name){
+          this.producto = prodData[key];
+        }
+      }
     })
-  }
-
-  goBack(){
-    this.location.back();
-  }
+  return this.producto;
+}
 
 }

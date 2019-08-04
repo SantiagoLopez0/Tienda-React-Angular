@@ -9,7 +9,7 @@ productos.getProducts = async (req, res, next) => {
 
 productos.getOneProduct = async (req, res, next) => {
   const  name  = req.params.nombre;
-  const product = await Producto.findOne(name);
+  const product = await Producto.findOne({nombre: name});
   res.json(product);
 }
 

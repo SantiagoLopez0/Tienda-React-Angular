@@ -9,7 +9,7 @@
 }
 
 .card-image img{
-  width: 90%;
+  width: 100%;
 }
 .card{
   color: black;
@@ -20,7 +20,7 @@
   flex-direction: row;
 }
 
-.contenidoSpan{
+.contenidoDB{
   color: gray;
 }
 
@@ -33,6 +33,7 @@ h2{
 }
 
 .card-action{
+  padding-bottom: 0;
   display: flex;
   flex-direction: row;
 }

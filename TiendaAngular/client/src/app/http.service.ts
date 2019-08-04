@@ -21,5 +21,10 @@ export class HttpService {
     return this.http.post(this.URL_API+'/login', {user: user, pass: pass});
   }
 
+  logoutUser(){
+    const datos = JSON.stringify("");
+    return this.http.post(this.URL_API+'/logout', datos);
+  }
+
 
 }
