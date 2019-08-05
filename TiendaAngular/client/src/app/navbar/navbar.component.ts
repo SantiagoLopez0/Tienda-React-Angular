@@ -43,12 +43,12 @@ export class NavbarComponent implements OnInit {
     }else if(idTarget == "catalogo"){
       this.router.navigate(['/home']);
     }else{
-      alert("Carrito");
+      this.onShopping();
     }
   }
 
   onShopping(){
-    alert("Carrito");
+    this.router.navigate(['/carrito']);
   }
 
 }

@@ -14,17 +14,40 @@ import { Router } from '@angular/router';
 })
 export class CatalogoComponent implements OnInit {
   private productos : any[] = [];
+  private noProduct: Boolean = false;
   constructor(private productoService: ProductoHttpService, private router: Router) { }
 
   ngOnInit() {
+    this.getProductos();
+  }
+
+  onChange(value){
+    let param = value.toLowerCase();
+    let aux: any[] = [];
+    if(param != ''){
+      for(let key in this.productos){
+        let nombreProd = this.productos[key].nombre.toLowerCase();
+        if(nombreProd.indexOf(param) !== -1){
+          aux.push(this.productos[key]);
+        }
+      }
+      if(aux.length == 0){
+        this.noProduct = true;
+        console.log('Producto no encontrado');
+      }
+      this.productos = aux;
+    }else{
+      this.getProductos();
+      this.noProduct = false;
+    }
+    return aux;
+  }
+
+  getProductos(){
     const prod = this.productoService.getProd();
     prod.subscribe((prodData: any[]) => {
       this.productos = prodData;
     })
-  }
-
-  onChange(value){
-    console.log(value);
   }
 
 }

@@ -28,6 +28,9 @@
           </div>
         </div>
       </div>
+      <div *ngIf="noProduct">
+        <h4>No se encontraron productos.</h4>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </div>

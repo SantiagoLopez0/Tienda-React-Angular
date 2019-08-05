@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login-component/login-component.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
-import { CardProductoComponent } from './card-producto/card-producto.component';
 import { ProductoComponent } from './producto/producto.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ProductoHttpService } from './producto-http.service';
@@ -19,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'home', component: CatalogoComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'producto/:nombre', component: ProductoComponent },
+  { path: 'carrito', component: CarritoComponent }
 ];
 
 
@@ -28,7 +28,6 @@ const appRoutes: Routes = [
     LoginComponent,
     NavbarComponent,
     CatalogoComponent,
-    CardProductoComponent,
     ProductoComponent,
     CarritoComponent
   ],
