@@ -12,6 +12,7 @@ import { ProductoComponent } from './producto/producto.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ProductoHttpService } from './producto-http.service';
 import { HttpService } from './http.service';
+import { CarritoService } from './carrito.service';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ProductoHttpService, HttpService],
+  providers: [ProductoHttpService, HttpService, CarritoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,40 @@
-<p>carrito works!</p>
+<div class="row mainContainer">
+  <div class="container">
+    <app-navbar></app-navbar>
+    <div class="col s12 card">
+      <div class="card-title">
+        <h3>Carrito de Compras</h3>
+      </div>
+      <div class="" *ngIf="carritoVacio">
+        <h5>No tienes productos en tu carrito.</h5>
+      </div>
+      <div class="" *ngIf="carritoVacio == false">
+        <div class="col s6">
+          <ul class="collection" *ngFor="let prod of productos">
+            <li class="collection-item avatar">
+              <img src="{{prod.url}}" alt="{{prod.nombre}}" class="circle">
+              <span class="title">{{prod.nombre}}</span>
+              <p>
+                <span>Nombre: <span class="contSpan">{{prod.nombre}}</span></span>
+                <br>
+                <span>Cantidad: <span class="contSpan">{{prod.cantidadSelec}}</span></span>
+                <br>
+                <span>Precio: <span class="contSpan">${{prod.precio}}</span></span>
+              </p>
+            </li>
+          </ul>
+        </div>        
+      </div>
+      <div class="col s6">
+        <div class="card-content">
+          <h5>Precio Total: ${{precioTotal}}</h5>
+        </div>
+        <div class="btnGroup">
+          <a (click)="cancelarCompra()" class="btn blue lighten-4">Cancelar</a>
+          <a (click)="hacerCompra()" class="btn blue lighten-4">Pagar</a>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

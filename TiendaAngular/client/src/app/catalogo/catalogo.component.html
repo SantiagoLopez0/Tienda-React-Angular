@@ -21,8 +21,8 @@
             </div>
             <div class="card-action">
               <a [routerLink]="['/producto', prod.nombre]">Ver más</a>
-              <a href="#">Añadir</a>
-              <input type="number" name="cantidadSelec" min="1" max="{{prod.cantidadDisponible}}">
+              <a (click)="agregarProd(cantidadSelec.value, prod.nombre)" id="btnAdd">Añadir</a>
+              <input type="number" #cantidadSelec min="1" max="{{prod.cantidadDisponible}}" value="1">
               <router-outlet></router-outlet>
             </div>
           </div>

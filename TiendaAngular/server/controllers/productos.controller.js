@@ -8,9 +8,17 @@ productos.getProducts = async (req, res, next) => {
 };
 
 productos.getOneProduct = async (req, res, next) => {
-  const  name  = req.params.nombre;
-  const product = await Producto.findOne({nombre: name});
+  const  nombre  = req.params.nombre;
+  const product = await Producto.find({nombre: nombre});
+  console.log(product);
   res.json(product);
+}
+
+productos.updateProduct = async (req, res, next) => {
+  const nombre = req.body.nombre;
+  const cantidad = {cantidadDisponible: req.body.cantidad};
+  Producto.findOneAndUpdate({"nombre":nombre},{$set:cantidad});
+  res.json({status: `actualizado`});
 }
 
 module.exports = productos;

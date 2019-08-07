@@ -3,6 +3,7 @@
     <span class="brand-logo black-text">{{titulo}}</span>
     <ul id="nav-mobile" class="right hide-on-med-and-down" *ngFor="let item of barraNav">
       <li><a (click)="onEvent(item.nombre)" title="{{item.nombre}}"> <i class="material-icons black-text">{{item.iconName}}</i></a></li>
+      <li *ngIf="item.nombre == 'carrito' && carrito.getNumProd() > 0" class="numItems">{{carrito.getNumProd()}}</li>
     </ul>
   </div>
 </nav>

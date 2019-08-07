@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
-//import { CardProductoComponent } from '../card-producto/card-producto.component';
-import { ProductoComponent } from '../producto/producto.component';
-import { ProductoHttpService } from '../producto-http.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+import { NavbarComponent } from '../navbar/navbar.component';
+//import { CardProductoComponent } from '../card-producto/card-producto.component';
+import { ProductoComponent } from '../producto/producto.component';
+
+import { CarritoService } from '../carrito.service';
+import { ProductoHttpService } from '../producto-http.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -15,10 +17,23 @@ import { Router } from '@angular/router';
 export class CatalogoComponent implements OnInit {
   private productos : any[] = [];
   private noProduct: Boolean = false;
-  constructor(private productoService: ProductoHttpService, private router: Router) { }
+  constructor(private productoService: ProductoHttpService,
+    private router: Router,
+    private carrito: CarritoService) { }
 
   ngOnInit() {
     this.getProductos();
+    console.log(this.carrito.getCarrito())
+  }
+
+  agregarProd(valueCantidad, valueNombre){
+    let producto: any = {
+      nombre: valueNombre,
+      cantidadSelec: valueCantidad
+    }
+    this.carrito.setCarrito(producto);
+    this.carrito.setNumProd();
+    //console.log(this.carrito.getCarrito());
   }
 
   onChange(value){
@@ -49,5 +64,4 @@ export class CatalogoComponent implements OnInit {
       this.productos = prodData;
     })
   }
-
 }

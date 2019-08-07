@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { CarritoService } from '../carrito.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +12,9 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 export class NavbarComponent implements OnInit {
   titulo = 'La Bodega';
   barraNav : object[];
+  productosCarrito = 2;
 
-  constructor(private router: Router, private http: HttpService) { }
+  constructor(private router: Router, private http: HttpService, private carrito: CarritoService) { }
 
   ngOnInit() {
     this.barraNav= [
@@ -50,5 +52,4 @@ export class NavbarComponent implements OnInit {
   onShopping(){
     this.router.navigate(['/carrito']);
   }
-
 }
