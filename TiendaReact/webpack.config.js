@@ -3,22 +3,21 @@ const path = require('path');
 var config= {
     entry: './main.js',
     output: {
-        path : path.resolve(__dirname, './'),
+        path : path.resolve(__dirname, './src/public/js'),
         filename : 'index.js'
     },
-    devServer: {
+    /*devServer: {
         inline: true,
         port: 8080
-    },
-    
+    },*/
     module: {
         rules: [
           {
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',             
+            loader: 'babel-loader',
             query: {
-                presets: [        
+                presets: [
                     "@babel/preset-env",
                     "@babel/preset-react"
                 ]
@@ -30,4 +29,3 @@ var config= {
 };
 
 module.exports = config;
-
