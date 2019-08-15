@@ -1,20 +1,18 @@
 import React from 'react';
+import { render } from 'react-dom'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 class App extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            mensaje1: 'Plantillas para Reahjct.js',
-            mensaje2: 'Titulo del compomente hijo2xd'
-        };
-    }
     render(){
         return(
-            <div>
-                <h1>{this.state.mensaje1} </h1>
-            </div>
-            );
-        }
+        <Router>
+           <Route exact path="/" component={Login} />
+           <Route path="/about" component={Tienda} />
+       </Router>
+
+        );
+    }
 }
 
 export default App;

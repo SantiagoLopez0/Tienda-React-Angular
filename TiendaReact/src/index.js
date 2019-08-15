@@ -24,8 +24,17 @@ app.use('/api/users', require('./server/routes/rutasUsuarios.js'));
 app.use('/api/productos', require('./server/routes/rutasProductos.js'));
 
 //static files
-app.use(express.static(path.join(__dirname, 'public')));;
 
+app.use(express.static(path.join(__dirname, '/Public/')));;
+
+//get client url
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, './Public/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+});
 // starting the server
 app.listen(app.get('port'), () => {
     console.log(`server on port ${app.get('port')}`);

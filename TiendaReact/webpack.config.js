@@ -1,15 +1,18 @@
 const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 var config= {
     entry: './src/App/main.js',
     output: {
-        path : path.resolve(__dirname, './src/public/js'),
-        filename : 'index.js'
+        path : path.resolve(__dirname, './src/Public/js'),
+        filename : 'index.js',
     },
-    /*devServer: {
-        inline: true,
-        port: 8080
-    },*/
+    devServer: {
+        //inline: true,
+        //port: 3000,
+        historyApiFallback: true
+    },
     module: {
         rules: [
           {

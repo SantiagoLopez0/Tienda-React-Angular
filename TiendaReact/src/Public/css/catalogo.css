@@ -1,0 +1,92 @@
+.catalogo{
+  color: black;
+  height: 570px !important;
+  overflow-y: auto;
+}
+
+.catalogo::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+}
+
+.catalogo::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+
+.catalogo::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.catalogo::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+.catalogo::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+.catalogo::-webkit-scrollbar-track:hover,
+.catalogo::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+.car-title{
+  font-size: 3em;
+  display: flex;
+  flex-direction: row;
+}
+
+input[type=text]:not(.browser-default){
+  width: 35%;
+  margin-left: 24%;
+}
+
+img[alt='Aguacate'], img[alt='Brocoli']{
+  width: 70% !important;
+  left: 30px !important;
+}
+
+img[alt='Naranja'], img[alt='Repollo'], img[alt='Tomate']{
+  width: 85%;
+  left: 15px;
+}
+
+.contenidoSpan{
+  color: gray;
+}
+
+.titleProd{
+  font-style: italic;
+}
+
+.card-action{
+  display: flex;
+  flex-direction: row;
+}
+
+.buscador{
+  width: 35% !important;
+}
+
+/*.s3{
+  margin-left: 1%;
+  width: 27%;
+  display: inherit;
+}*/
+
+.cardPr{
+  margin-left: 2%;
+  width: 22%;
+  float: left;
+  height: 408px; 
+}
+
+.contenedorProducto{
+  /*display: flex;
+  flex-direction: row;*/
+  align-items: center;
+}

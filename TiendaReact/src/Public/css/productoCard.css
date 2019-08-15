@@ -1,0 +1,51 @@
+.containerCard{
+  overflow: hidden;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: url('../assets/main-fondo.jpg') !important;
+  width: 100%;
+  height: 100%;
+}
+
+.card-image img{
+  width: 100%;
+}
+.card{
+  color: black !important;
+}
+
+.containerCard{
+  display: flex;
+  flex-direction: row;
+}
+
+.contenidoDB{
+  color: gray;
+}
+
+h2{
+  margin: 0;
+}
+
+.card-content{
+  font-size: 20px;
+}
+
+.card-action{
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+a{
+  color: #90caf9 !important;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+input{
+  width: 60px !important;
+}

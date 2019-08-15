@@ -8,8 +8,9 @@ usuarios.getUsers = async (req, res, next) => {
 };
 
 usuarios.loginUser = async (req, res, next) => {
-  let user = req.body.user;
-  let password = req.body.pass;
+  //let user = req.body.user;
+  //let password = req.body.pass;
+  const {user, pass} = req.body
   let session = req.session;
 
   Users.find({user: user}).count({}, function(err, count) {
@@ -18,7 +19,7 @@ usuarios.loginUser = async (req, res, next) => {
           res.json(err);
       }else{
         if(count == 1){
-          Users.find({user: user, password: password }).count({}, function(err, count) {
+          Users.find({user: user, password: pass }).count({}, function(err, count) {
               if (err) {
                   res.status(500);
                   res.json(err);
