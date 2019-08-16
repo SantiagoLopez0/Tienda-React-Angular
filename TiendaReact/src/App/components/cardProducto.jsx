@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Link } from "react-router-dom";
+import Carrito from './carrito.jsx';
 
 class CrearCardProducto extends React.Component{
   constructor(props){
@@ -14,11 +15,11 @@ class CrearCardProducto extends React.Component{
   agregarproducto(producto){
     this.state.carrito.push(producto)
     console.log(this.state.carrito);
+    localStorage.setItem('carroTemp', JSON.stringify(this.state.carrito));
   }
 
   render(){
     let productos = this.props.producto;
-    let carro = [];
     let agregar = (nombre) =>{
       let cantidadSelec = document.getElementById(`${'selec'}${nombre}`).value;
       let producto = {
@@ -33,7 +34,7 @@ class CrearCardProducto extends React.Component{
     <div className="col s3 card cardPr" key={item.nombre}>
 
           <div className="card-image" >
-            <img src={item.url} alt={item.nombre} />
+            <img src={item.url} alt={item.nombre} id={`${'img'}${item.nombre}`}/>
           </div>
           <div className="card-content">
             <span className="card-title titleProd">{item.nombre}</span>
@@ -52,5 +53,4 @@ class CrearCardProducto extends React.Component{
     return listProd;
   }
 }
-
 export default CrearCardProducto;

@@ -15,8 +15,6 @@ Router.post('/update', function(req, res) {
           Producto.update({nombre: nombre}, {cantidadDisponible:cantidadDisponible}, (error, result) => {
             if (error){
               res.json({status: error});
-            }else{
-              res.json({status: `actualizado`});
             }
           })
         }

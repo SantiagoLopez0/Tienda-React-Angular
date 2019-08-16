@@ -1,0 +1,28 @@
+.mainContainer{
+  color: black;
+}
+
+.contenidoProd span{
+  font-size: 17px;
+}
+
+.card.horizontal .card-image{
+  max-width: 40% !important;
+}
+
+.contSpan{
+  color: gray;
+}
+
+.btnGroup a{
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.title{
+    font-size: 30px !important;
+}
+
+a:hover{
+  cursor: pointer;
+}
