@@ -14,11 +14,4 @@ productos.getOneProduct = async (req, res, next) => {
   res.json(product);
 }
 
-productos.updateProduct = async (req, res, next) => {
-  const nombre = req.body.nombre;
-  const cantidad = {cantidadDisponible: req.body.cantidad};
-  Producto.findOneAndUpdate({"nombre":nombre},{$set:cantidad});
-  res.json({status: `actualizado`});
-}
-
 module.exports = productos;

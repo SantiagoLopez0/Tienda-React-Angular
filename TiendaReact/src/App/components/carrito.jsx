@@ -61,23 +61,26 @@ class Carrito extends React.Component{
     let carro = this.state.listaCarro;
     for(let key in carro){
       const nombre = carro[key].nombre;
-      const cantidadRes = carro[key].cantidadRestante;
-      request.post('http://localhost:3000/api/productos/update')
-      .send({ nombre: nombre, cantidad: cantidadRes })
-      .set('X-API-Key', 'foobar')
-      .set('accept', 'json')
-      .end((err, res) => {
+      const cantidad = carro[key].cantidadRestante;
+      fetch("http://localhost:3000/api/productos/update", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({nombre: nombre, cantidad: cantidad}),
+      })
+      .then((res)=>{
         let respuesta = res.status;
         if(respuesta.toString() == 200){
-          alert('Compra realizada con exito');
-          this.setState({listaCarro: [], precioTotal: 0, backToHome: true, contador: 0});
-          localStorage.setItem('carroTemp', JSON.stringify([]));
-        }else{
-          alert(respuesta);
-        }
+           alert('Compra realizada con exito');
+           localStorage.setItem('carroTemp', JSON.stringify([]));
+           this.setState({listaCarro: [], precioTotal: 0, backToHome: true, contador: 0});
+         }else{
+           alert(respuesta);
+         }
       })
-    }
   }
+}
 
   render(){
     if (this.state.backToHome){
