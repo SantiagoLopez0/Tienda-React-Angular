@@ -9,10 +9,12 @@ class Tienda extends React.Component{
     super();
     this.state = {
       productos: [],
-      carrito: []
+      carrito: [],
+      contador: 0
     }
 
     this.changeBrowser = this.changeBrowser.bind(this);
+    this.contadorCarrito = this.contadorCarrito.bind(this);
   }
 
   componentDidMount() {
@@ -23,10 +25,6 @@ class Tienda extends React.Component{
       this.setState({productos: response});
       console.log(this.state.productos);
     })
-  }
-
-  componentWillUnmount() {
-
   }
 
   changeBrowser(input){
@@ -57,14 +55,18 @@ class Tienda extends React.Component{
 
   }
 
-  agregarproducto(){
-
+  contadorCarrito(cont){
+    this.setState((state)=>{
+      return {
+        contador: cont +1
+      };
+    });
   }
 
     render(){
         return(
           <div className="container">
-            <Navbar />
+            <Navbar cont={this.state.contador}/>
             <div className=" col s12 card catalogo">
               <div className="car-title">
                 <span>Catálogo de Productos</span>
@@ -73,7 +75,7 @@ class Tienda extends React.Component{
               <div className="divider"></div>
               <div className="contenedorProducto">
 
-                  <CrearCardProducto producto={this.state.productos} agregarProd={this.agregarproducto}/>
+                  <CrearCardProducto producto={this.state.productos} cont={this.contadorCarrito}/>
 
               </div>
               <div style={{display: 'none'}} id="noProd"><h4>Producto no encontrado</h4></div>

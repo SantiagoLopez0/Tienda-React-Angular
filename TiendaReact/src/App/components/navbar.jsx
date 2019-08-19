@@ -8,7 +8,6 @@ class Navbar extends React.Component{
 
     this.state = {
       titulo: 'La Bodega',
-      numClick: 0
     }
   }
 
@@ -18,6 +17,7 @@ class Navbar extends React.Component{
             <div className="nav-wrapper blue lighten-5">
               <span className="brand-logo black-text">{this.state.titulo}</span>
               <OptionsNavbar />
+              <span id='carritoProd' className="black-text numClick">{this.props.cont}</span>
             </div>
           </nav>
         );

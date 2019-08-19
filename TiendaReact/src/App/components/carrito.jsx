@@ -11,11 +11,13 @@ class Carrito extends React.Component{
     this.state = {
       listaCarro: [],
       precioTotal: 0,
-      backToHome: false
+      backToHome: false,
+      contador: 0
     }
 
     this.cancelarCompra = this.cancelarCompra.bind(this);
     this.hacerCompra = this.hacerCompra.bind(this);
+    this.contadorCarrito = this.contadorCarrito.bind(this);
   }
 
   componentDidMount(){
@@ -44,14 +46,14 @@ class Carrito extends React.Component{
           }
         }
       }
-      this.setState({listaCarro: carrito})
+      this.setState({listaCarro: carrito, contador: carrito.length})
       console.log(this.state.precioTotal);
     })
 
   }
 
   cancelarCompra(){
-    this.setState({listaCarro: [], precioTotal: 0, backToHome: true});
+    this.setState({listaCarro: [], precioTotal: 0, backToHome: true, contador: 0});
     localStorage.setItem('carroTemp', JSON.stringify([]));
     alert('Compra cancelada');
   }
@@ -69,7 +71,7 @@ class Carrito extends React.Component{
         let respuesta = res.status;
         if(respuesta.toString() == 200){
           alert('Compra realizada con exito');
-          this.setState({listaCarro: [], precioTotal: 0, backToHome: true});
+          this.setState({listaCarro: [], precioTotal: 0, backToHome: true, contador: 0});
           localStorage.setItem('carroTemp', JSON.stringify([]));
         }else{
           alert(respuesta);
@@ -85,7 +87,7 @@ class Carrito extends React.Component{
     return(
       <div className="row mainContainer">
         <div className="container">
-          <Navbar />
+          <Navbar cont={this.state.contador}/>
           <div className="col s12 card">
             <div className="card-title">
               <h3>Carrito de Compras</h3>

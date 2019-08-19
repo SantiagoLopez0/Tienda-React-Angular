@@ -7,7 +7,8 @@ class CrearCardProducto extends React.Component{
     super(props);
 
     this.state = {
-      carrito: []
+      carrito: [],
+      contador: 0
     }
     this.agregarproducto = this.agregarproducto.bind(this);
   }
@@ -15,16 +16,22 @@ class CrearCardProducto extends React.Component{
   agregarproducto(producto){
     this.state.carrito.push(producto)
     console.log(this.state.carrito);
+    this.setState((state)=>{
+      return {
+        contador: state.contador + 1
+      };
+    });
+    this.props.cont(this.state.contador);
     localStorage.setItem('carroTemp', JSON.stringify(this.state.carrito));
   }
 
   render(){
     let productos = this.props.producto;
-    let agregar = (nombre) =>{
+    let agregar = (nombre)=>{
       let cantidadSelec = document.getElementById(`${'selec'}${nombre}`).value;
       let producto = {
         nombre: nombre,
-        cantidadSelec: cantidadSelec
+        cantidadSelec: cantidadSelec,
       }
       this.agregarproducto(producto);
     }
