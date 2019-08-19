@@ -17,7 +17,6 @@ class Carrito extends React.Component{
 
     this.cancelarCompra = this.cancelarCompra.bind(this);
     this.hacerCompra = this.hacerCompra.bind(this);
-    this.contadorCarrito = this.contadorCarrito.bind(this);
   }
 
   componentDidMount(){
